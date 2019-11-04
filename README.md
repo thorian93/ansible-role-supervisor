@@ -1,12 +1,12 @@
 # Ansible Role: Supervisor
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-supervisor.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-supervisor)
-
 An Ansible Role that installs [Supervisor](http://supervisord.org/) on Linux.
+
+I forked this role to use the OS package manager for the installation. Thanks @geerlingguy for the initial role!
 
 ## Requirements
 
-Python `pip` should be installed. If it is not already installed, you can use the `geerlingguy.pip` Ansible role to install Pip prior to running this role.
+None
 
 ## Role Variables
 
@@ -85,8 +85,7 @@ None.
 
     - hosts: all
       roles:
-        - geerlingguy.pip
-        - geerlingguy.supervisor
+        - ansible-role-supervisor
 
 If you need to use `supervisorctl`, you can either use [Ansible's built-in `supervisorctl` module](http://docs.ansible.com/ansible/supervisorctl_module.html) for management, or run it like so (accounting for the variable path to the configuration directory):
 
@@ -99,3 +98,4 @@ MIT / BSD
 ## Author Information
 
 This role was created in 2017 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+This role was modified in 2019 by [Thorian93](https://thorian93.de/).
