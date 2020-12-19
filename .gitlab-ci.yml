@@ -1,7 +1,7 @@
 ---
 variables:
   GITHUB_REPO: "git@github.com:thorian93/ansible-role-supervisor.git"
-  GITLAB_REPO: "git@gitlab.com:thorian93/ansible-role-supervisor.git"
+  GITLAB_REPO: "git@gitlab.com:thorian93_ansible/ansible-role-supervisor.git"
 
 stages:
   - cleanup
