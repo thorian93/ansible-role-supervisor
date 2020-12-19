@@ -2,19 +2,24 @@
 
 An Ansible Role that installs [Supervisor](http://supervisord.org/) on Linux.
 
-I forked this role to use the OS package manager for the installation. Thanks @geerlingguy for the initial role!
+[![Ansible Role: TTRSS](https://img.shields.io/ansible/role/ID?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_ttrss)
+[![Ansible Role: TTRSS](https://img.shields.io/ansible/quality/ID?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_ttrss)
+[![Ansible Role: TTRSS](https://img.shields.io/ansible/role/d/ID?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_ttrss)
+
+**I forked this role to use the OS package manager for the installation. Thanks @geerlingguy for the initial role!**
 
 ## Requirements
 
-None
+No special requirements; note that this role requires root access, so either run it in a playbook with a global `become: yes`, or invoke the role in your playbook like:
+
+    - hosts: foobar
+      roles:
+        - role: thorian93.ansible_role_supervisor
+          become: yes
 
 ## Role Variables
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
-
-    supervisor_version: latest
-
-Install a specific version of Supervisor by setting it here. See [available Supervisor versions](https://pypi.python.org/pypi/supervisor) on Pypi. `latest` installs the latest stable release.
 
     supervisor_started: true
     supervisor_enabled: true
@@ -45,7 +50,7 @@ The path where Supervisor configuration should be stored.
           killasgroup=true
           stopasgroup=true
 
-`supervisor_programs` is an empty list by default; you can define a list of `program`s to be managed by Supervisor. If you set `state` to `present`, then a configuration file for the program (named `[program-name-here].conf`) will be added to the `conf.d` path included by the global Supervisor configuration. You can also manage program-level configuration on your own, outside this role, if you need more flexibility.
+`supervisor_programs` is an empty list by default; you can define a list of `programs` to be managed by Supervisor. If you set `state` to `present`, then a configuration file for the program (named `[program-name-here].conf`) will be added to the `conf.d` path included by the global Supervisor configuration. You can also manage program-level configuration on your own, outside this role, if you need more flexibility.
 
     supervisor_nodaemon: false
 
@@ -98,7 +103,7 @@ Kudos to [HarryHarcourt](https://github.com/HarryHarcourt) for this idea!
 
     - hosts: all
       roles:
-        - ansible-role-supervisor
+        - thorian93.ansible_role_supervisor
 
 If you need to use `supervisorctl`, you can either use [Ansible's built-in `supervisorctl` module](http://docs.ansible.com/ansible/supervisorctl_module.html) for management, or run it like so (accounting for the variable path to the configuration directory):
 
