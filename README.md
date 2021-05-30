@@ -2,9 +2,9 @@
 
 An Ansible Role that installs [Supervisor](http://supervisord.org/) on Linux.
 
-[![Ansible Role: TTRSS](https://img.shields.io/ansible/role/52407?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_ttrss)
-[![Ansible Role: TTRSS](https://img.shields.io/ansible/quality/52407?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_ttrss)
-[![Ansible Role: TTRSS](https://img.shields.io/ansible/role/d/52407?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_ttrss)
+[![Ansible Role: TTRSS](https://img.shields.io/ansible/role/55146?style=flat-square)](https://galaxy.ansible.com/thorian93/supervisor)
+[![Ansible Role: TTRSS](https://img.shields.io/ansible/quality/55146?style=flat-square)](https://galaxy.ansible.com/thorian93/supervisor)
+[![Ansible Role: TTRSS](https://img.shields.io/ansible/role/d/55146?style=flat-square)](https://galaxy.ansible.com/thorian93/supervisor)
 
 **I forked this role to use the OS package manager for the installation. Thanks @geerlingguy for the initial role!**
 
@@ -14,7 +14,7 @@ No special requirements; note that this role requires root access, so either run
 
     - hosts: foobar
       roles:
-        - role: thorian93.ansible_role_supervisor
+        - role: thorian93.supervisor
           become: yes
 
 ## Role Variables
@@ -103,7 +103,7 @@ Kudos to [HarryHarcourt](https://github.com/HarryHarcourt) for this idea!
 
     - hosts: all
       roles:
-        - thorian93.ansible_role_supervisor
+        - thorian93.supervisor
 
 If you need to use `supervisorctl`, you can either use [Ansible's built-in `supervisorctl` module](http://docs.ansible.com/ansible/supervisorctl_module.html) for management, or run it like so (accounting for the variable path to the configuration directory):
 
